@@ -30,15 +30,116 @@
       .controller('mainCtrl', function ($scope, $http, $rootScope) {
          var vm = this;
 
-         vm.name = 'dank';
+		 
+        vm.name = 'dank';
+        vm.title = 'System Access';
+        vm.submission = [];
+		
+		
+        // Methods		
+        vm.nextStep = nextStep;		
+		
+		
+		// Plain form fields
+        vm.submission.firstName = "";
+        vm.submission.lastName = "";
+        vm.submission.mobileNumber = "";
+        vm.submission.email = "";
+        vm.submission.nsnid = "";
+        vm.submission.ptid = "";
+		
+        function nextStep() {
+            console.log('vm.submission.nsnid: ' + vm.submission.nsnid);
+            console.log('vm.submission: angular.version: ' + angular.version);
 
+            
+            var strung2 = JSON.stringify(vm.submission);
+            var strung = JSON.stringify($scope.submission);
 
+            console.log('vm.submission: ' + strung);
+            $scope.submissionData2 = [];
+
+            $scope.submissionData2 = angular.copy(vm.submission);
+
+            var submissionData = angular.toJson($scope.submissionData2);
+
+            console.log('nextStep'+ JSON.stringify($scope.submissionData2));
+
+            $state.go('home.submitRequest', vm.submission);
+
+		}
+		
 
       });
 
 
 </script>
 
+
+
+	<div class="form-uap">
+		<form role="form" name="subscribeForm" novalidate ng-controller='mainCtrl as vm'>
+	
+			<div class="form-group">
+				<label for="firstName">First Name:</label>
+
+				<input type='text' class="form-control" 
+					id="firstName" name="firstName" 
+					ng-model="vm.submission.firstName" maxlength="100"/>
+			</div>
+
+			<div class="form-group">
+				<label for="lastName">Last Name:</label>
+
+				<input type='text' class="form-control" 
+					id="lastName" name="lastName" 
+					ng-model="vm.submission.lastName" maxlength="100"/>
+			</div>
+
+			<div class="form-group">
+				<label for="mobileNumber">Mobile Number:</label>
+
+				<input type='phonenumber' class="form-control" 
+					id="mobileNumber" name="mobileNumber" 
+					ng-model="vm.submission.mobileNumber" maxlength="100"/>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email Address:</label>
+
+				<input type='email' class="form-control" 
+					id="email" name="email" 
+					ng-model="vm.submission.email" maxlength="100"/>
+			</div>
+
+			<div class="form-group">
+				<label for="nsnid">NSN ID:</label>
+
+				<input type='text' class="form-control" 
+					id="nsnid" name="nsnid" 
+					ng-model="vm.submission.nsnid" maxlength="100"/>
+			</div>
+
+			<div class="form-group">
+				<label for="ptid">PTID:</label>
+
+				<input type='text' class="form-control" 
+					id="ptid" name="ptid" 
+					ng-model="vm.submission.ptid" maxlength="100"/>
+			</div>
+
+			
+            <button type="button" class="btn btn-sm btn-info btn-rounded" data-toggle="tooltip"
+                    data-placement="top" title="Next" ng-click="vm.nextStep()">
+                Next <i class="glyphicon glyphicon-circle-arrow-right"></i> 
+            </button>
+			
+
+		</form>				
+	</div>			
+					
+					
+					
 </body>
 </html>
 
