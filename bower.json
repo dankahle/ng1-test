@@ -1,0 +1,22 @@
+{
+  "name": "ng1-test",
+  "homepage": "https://github.com/dankahle/ng1-test",
+  "authors": [
+    "Dan Kahle <daniel.kahle@acxiom.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.4.4",
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.2"
+  }
+}

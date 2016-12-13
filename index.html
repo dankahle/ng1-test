@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head lang="en">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>test2 </title>
+
+   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+   <link rel="stylesheet" href="test.css">
+
+   <script src="bower_components/lodash/dist/lodash.min.js"></script>
+   <script src="lib/jquery.min.js"></script>
+   <script src="lib/angular.min.js"></script>
+   <script src="lib/lodash.min.js"></script>
+   <style>
+   </style>
+</head>
+<body ng-controller="mainCtrl as vm">
+
+<div>{{vm.name}}</div>
+
+<script>
+
+   {
+      console.log('block stsm');
+   }
+
+   angular.module('app', [])
+
+      .controller('mainCtrl', function ($scope, $http, $rootScope) {
+         var vm = this;
+
+         vm.name = 'dank';
+
+
+
+      });
+
+
+</script>
+
+</body>
+</html>
+
+
